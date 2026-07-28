@@ -7,70 +7,99 @@
     <link rel="stylesheet" href="styles.css">
   </head>
 
-    <body>
-  <main class="app-container">
-    <header class="app-header">
-      <p class="eyebrow">A Ghanaian naming tradition</p>
+  <body>
+    <main class="app-container">
+      <header class="app-header">
+        <p class="eyebrow">A Ghanaian naming tradition</p>
 
-      <h1>Akan Name Generator</h1>
+        <h1>Akan Name Generator</h1>
 
-      <p class="intro">
-        Akan names are traditionally connected to the day of the week a
-        person is born. Enter your birth date and select a gender to discover
-        your corresponding Akan name.
-      </p>
-    </header>
-    <section class="form-card" aria-labelledby="form-title">
-  <h2 id="form-title">Find your Akan name</h2>
+        <p class="intro">
+          Akan names are traditionally connected to the day of the week a
+          person is born. Enter your birth date and select a gender to discover
+          your corresponding Akan name.
+        </p>
+      </header>
 
-  <form id="akan-form">
-    <fieldset>
-      <legend>Your birth date</legend>
+      <section class="form-card" aria-labelledby="form-title">
+        <h2 id="form-title">Find your Akan name</h2>
 
-      <div class="date-grid">
-        <div class="form-group">
-          <label for="birth-day">Day</label>
-          <input
-            type="number"
-            id="birth-day"
-            name="day"
-            min="1"
-            max="31"
-            placeholder="DD"
-            required
-          >
-        </div>
+        <form id="akan-form">
+          <fieldset>
+            <legend>Your birth date</legend>
 
-        <div class="form-group">
-          <label for="birth-month">Month</label>
-          <input
-            type="number"
-            id="birth-month"
-            name="month"
-            min="1"
-            max="12"
-            placeholder="MM"
-            required
-          >
-        </div>
+            <div class="date-grid">
+              <div class="form-group">
+                <label for="birth-day">Day</label>
+                <input
+                  type="number"
+                  id="birth-day"
+                  name="day"
+                  min="1"
+                  max="31"
+                  placeholder="DD"
+                  required
+                >
+              </div>
 
-        <div class="form-group">
-          <label for="birth-year">Year</label>
-          <input
-            type="number"
-            id="birth-year"
-            name="year"
-            min="1900"
-            placeholder="YYYY"
-            required
-          >
-        </div>
-      </div>
-    </fieldset>
-  </form>
-</section>
-  </main>
+              <div class="form-group">
+                <label for="birth-month">Month</label>
+                <input
+                  type="number"
+                  id="birth-month"
+                  name="month"
+                  min="1"
+                  max="12"
+                  placeholder="MM"
+                  required
+                >
+              </div>
 
-  <script src="script.js"></script>
+              <div class="form-group">
+                <label for="birth-year">Year</label>
+                <input
+                  type="number"
+                  id="birth-year"
+                  name="year"
+                  min="1900"
+                  placeholder="YYYY"
+                  required
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="gender-fieldset">
+            <legend>Gender</legend>
+
+            <div class="gender-options">
+              <div class="gender-option">
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  required
+                >
+                <label for="male">Male</label>
+              </div>
+
+              <div class="gender-option">
+                <input
+                  type="radio"
+                  id="female"
+                  name="gender"
+                  value="female"
+                  required
+                >
+                <label for="female">Female</label>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
