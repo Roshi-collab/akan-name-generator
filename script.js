@@ -32,10 +32,16 @@ const form = document.getElementById("akan-form");
 const dayInput = document.getElementById("birth-day");
 const monthInput = document.getElementById("birth-month");
 const yearInput = document.getElementById("birth-year");
+const maleInput = document.getElementById("male");
 
 const resultCard = document.getElementById("result-card");
 const resultName = document.getElementById("result-name");
 const resultDay = document.getElementById("result-day");
+
+function showValidationError(message, field) {
+  alert(message);
+  field.focus();
+}
 
 function isValidDate(day, month, year) {
   const date = new Date(year, month - 1, day);
@@ -85,13 +91,23 @@ form.addEventListener("submit", function (event) {
     'input[name="gender"]:checked'
   );
 
-  if (
-    dayValue === "" ||
-    monthValue === "" ||
-    yearValue === "" ||
-    selectedGender === null
-  ) {
-    alert("Please complete every field and select Male or Female.");
+  if (dayValue === "") {
+    showValidationError("Please enter your birth day.", dayInput);
+    return;
+  }
+
+  if (monthValue === "") {
+    showValidationError("Please enter your birth month.", monthInput);
+    return;
+  }
+
+  if (yearValue === "") {
+    showValidationError("Please enter your birth year.", yearInput);
+    return;
+  }
+
+  if (selectedGender === null) {
+    showValidationError("Please select Male or Female.", maleInput);
     return;
   }
 
@@ -100,12 +116,18 @@ form.addEventListener("submit", function (event) {
   const year = Number(yearValue);
 
   if (!Number.isInteger(day) || day < 1 || day > 31) {
-    alert("Please enter a day between 1 and 31.");
+    showValidationError(
+      "Please enter a day between 1 and 31.",
+      dayInput
+    );
     return;
   }
 
   if (!Number.isInteger(month) || month < 1 || month > 12) {
-    alert("Please enter a month between 1 and 12.");
+    showValidationError(
+      "Please enter a month between 1 and 12.",
+      monthInput
+    );
     return;
   }
 
@@ -116,12 +138,18 @@ form.addEventListener("submit", function (event) {
     year < 1900 ||
     year > currentYear
   ) {
-    alert(`Please enter a year between 1900 and ${currentYear}.`);
+    showValidationError(
+      `Please enter a year between 1900 and ${currentYear}.`,
+      yearInput
+    );
     return;
   }
 
   if (!isValidDate(day, month, year)) {
-    alert("That date does not exist. Please check it and try again.");
+    showValidationError(
+      "That date does not exist. Please check it and try again.",
+      dayInput
+    );
     return;
   }
 
@@ -131,7 +159,10 @@ form.addEventListener("submit", function (event) {
   today.setHours(0, 0, 0, 0);
 
   if (birthDate > today) {
-    alert("Your birth date cannot be in the future.");
+    showValidationError(
+      "Your birth date cannot be in the future.",
+      yearInput
+    );
     return;
   }
 
