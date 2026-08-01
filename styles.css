@@ -1,9 +1,32 @@
-@media (prefers-reduced-motion: reduce) {
-  body::before,
-  body::after {
-    animation: none;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: #2f2528;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(215, 168, 75, 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(156, 63, 77, 0.12),
+      transparent 38%
+    ),
+    linear-gradient(135deg, #fffaf3, #fff6ed);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
 body::before,
 body::after {
   content: "";
@@ -57,7 +80,6 @@ input {
   font: inherit;
 }
 
-/* Main page container */
 .app-container {
   width: 90%;
   max-width: 850px;
@@ -65,10 +87,9 @@ input {
   padding: 50px 0;
 }
 
-/* Introduction area */
 .app-header {
-  text-align: center;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .eyebrow {
@@ -92,7 +113,6 @@ input {
   color: #66575c;
 }
 
-/* White form card */
 .form-card {
   padding: 32px;
   background-color: white;
@@ -108,7 +128,6 @@ input {
   text-align: center;
 }
 
-/* Form layout */
 form {
   display: flex;
   flex-direction: column;
@@ -127,7 +146,6 @@ legend {
   font-weight: bold;
 }
 
-/* Birthday inputs */
 .date-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -151,6 +169,7 @@ legend {
   border: 1px solid #cdbeb0;
   border-radius: 8px;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-group input:focus {
@@ -158,7 +177,6 @@ legend {
   box-shadow: 0 0 0 3px rgba(156, 63, 77, 0.15);
 }
 
-/* Male and female choices */
 .gender-options {
   display: flex;
   gap: 15px;
@@ -185,7 +203,11 @@ legend {
   cursor: pointer;
 }
 
-/* Submit button */
+.gender-option:has(input:focus-visible) {
+  outline: 3px solid #d7a84b;
+  outline-offset: 3px;
+}
+
 .submit-button {
   padding: 14px 20px;
   color: white;
@@ -207,7 +229,6 @@ legend {
   outline-offset: 3px;
 }
 
-/* Generated result */
 .result-card {
   margin-top: 24px;
   padding: 24px;
@@ -233,12 +254,10 @@ legend {
   color: #4f4145;
 }
 
-/* Keeps the result invisible before JavaScript reveals it */
 [hidden] {
   display: none;
 }
 
-/* Adjusts the page for phones and small screens */
 @media (max-width: 650px) {
   .app-container {
     width: 92%;
@@ -261,9 +280,14 @@ legend {
     flex-direction: column;
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
   body::before,
   body::after {
     animation: none;
+  }
+
+  .submit-button {
+    transition: none;
   }
 }
