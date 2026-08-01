@@ -254,6 +254,22 @@ legend {
   color: #4f4145;
 }
 
+.site-footer {
+  width: 90%;
+  max-width: 850px;
+  margin: -20px auto 0;
+  padding: 18px 0 30px;
+  color: #76666b;
+  border-top: 1px solid rgba(118, 45, 56, 0.15);
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
 [hidden] {
   display: none;
 }
@@ -278,6 +294,11 @@ legend {
 
   .gender-options {
     flex-direction: column;
+  }
+
+  .site-footer {
+    width: 92%;
+    margin-top: 0;
   }
 }
 
